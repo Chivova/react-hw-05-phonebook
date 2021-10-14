@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import types from './phonebook-actions';
+import types from './phonebook-types';
 
 const items = (
   state = [
@@ -27,7 +27,7 @@ const items = (
   }
 };
 
-const filter = (state = [], actions) => state;
+const filter = (state = '', actions) => state;
 
 export default combineReducers({
   items,

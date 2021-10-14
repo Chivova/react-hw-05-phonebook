@@ -3,9 +3,5 @@ const DELETE = 'phonebook/Delete';
 const FIND = 'phonebook/Find';
 const FILTER = 'phonebook/Filter';
 
-export default {
-  ADD,
-  DELETE,
-  FIND,
-  FILTER,
-};
+// eslint-disable-next-line
+export default { ADD, DELETE, FIND, FILTER };

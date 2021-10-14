@@ -25,9 +25,4 @@ const filter = value => ({
   payload: value,
 });
 
-export default {
-  addContact,
-  deleteContact,
-  find,
-  filter,
-};
+export { addContact, deleteContact, find, filter };
