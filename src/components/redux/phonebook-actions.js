@@ -15,7 +15,7 @@ const deleteContact = id => ({
   payload: id,
 });
 
-const find = contact => ({
+const findContact = contact => ({
   type: types.FIND,
   payload: contact,
 });
@@ -25,4 +25,4 @@ const filter = value => ({
   payload: value,
 });
 
-export { addContact, deleteContact, find, filter };
+export { addContact, deleteContact, findContact, filter };

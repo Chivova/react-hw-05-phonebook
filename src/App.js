@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
 import Container from './components/Container';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
@@ -28,22 +25,11 @@ function App() {
   //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
   // }, [contacts]);
 
-  // const addContact = (name, number) => {
-  //   const contact = {
-  //     id: uuidv4(),
-  //     name,
-  //     number,
-  //   };
-
   //   contacts.find(
   //     contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase(),
   //   )
   //     ? alert(`${name} is already in contacts `)
   //     : setContacts([contact, ...contacts]);
-  // };
-
-  // const deleteContact = id => {
-  //   setContacts(contacts.filter(contact => contact.id !== id));
   // };
 
   // const handleFilterConacts = e => {
@@ -60,9 +46,12 @@ function App() {
 
   return (
     <Container>
-      {/* <ContactForm onSubmit={addContact} /> */}
-      {/* <Filter value={filter} onChange={handleFilterConacts} />
-      <ContactList contacts={visibileContacts} onClick={deleteContact} /> */}
+      <ContactForm />
+      {/* <Filter value={filter} onChange={handleFilterConacts} /> */}
+      {/* <ContactList contacts={visibileContacts} onClick={deleteContact} /> */}
+      <Filter />
+
+      <ContactList />
     </Container>
   );
 }
