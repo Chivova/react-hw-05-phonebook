@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import { addContact } from '../redux/phonebook-actions';
 import s from './ContactForm.module.css';
 
-function ContactForm({ onSubmit }) {
-  console.log(onSubmit);
+function ContactForm({ onSubmit, contacts }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -28,6 +27,14 @@ function ContactForm({ onSubmit }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (
+      contacts.find(
+        contact =>
+          contact.name.toLocaleLowerCase() === name.toLocaleLowerCase(),
+      )
+    ) {
+      return alert(`${name} is already in contacts `);
+    }
     onSubmit(name, number);
 
     reset();
@@ -73,12 +80,14 @@ function ContactForm({ onSubmit }) {
     </form>
   );
 }
-
+const mapStateToProps = state => ({
+  contacts: state.phonebook.items,
+});
 const mapDisphatchToProps = disphatch => ({
   onSubmit: (name, number) => disphatch(addContact(name, number)),
 });
 
-export default connect(null, mapDisphatchToProps)(ContactForm);
+export default connect(mapStateToProps, mapDisphatchToProps)(ContactForm);
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };

@@ -19,38 +19,15 @@ function App() {
   //       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   //     ],
   // );
-  // const [filter, setFilter] = useState('');
 
   // useEffect(() => {
   //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
   // }, [contacts]);
 
-  //   contacts.find(
-  //     contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase(),
-  //   )
-  //     ? alert(`${name} is already in contacts `)
-  //     : setContacts([contact, ...contacts]);
-  // };
-
-  // const handleFilterConacts = e => {
-  //   const { value } = e.target;
-
-  //   setFilter(value);
-  // };
-
-  // const normalizedContacts = filter.toLocaleLowerCase();
-
-  // const visibileContacts = contacts.filter(contact =>
-  //   contact.name.toLocaleLowerCase().includes(normalizedContacts),
-  // );
-
   return (
     <Container>
       <ContactForm />
-      {/* <Filter value={filter} onChange={handleFilterConacts} /> */}
-      {/* <ContactList contacts={visibileContacts} onClick={deleteContact} /> */}
       <Filter />
-
       <ContactList />
     </Container>
   );

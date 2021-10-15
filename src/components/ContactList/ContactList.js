@@ -22,9 +22,31 @@ function ContactList({ contacts, onClick }) {
   );
 }
 
-const mapStateToProps = state => ({
-  contacts: state.phonebook.items,
-});
+const getVisibileContacts = (contacts, filter) => {
+  const normalizedContacts = filter.toLocaleLowerCase();
+
+  return contacts.filter(({ name }) =>
+    name.toLocaleLowerCase().includes(normalizedContacts),
+  );
+};
+
+// const mapStateToProps = state => {
+//   const { items, filter } = state.phonebook;
+
+//   return {
+//     contacts: getVisibileContacts(items, filter),
+//   };
+// };
+
+// const mapStateToProps = state => ({
+//   contacts: getVisibileContacts(state.phonebook.items, state.phonebook.filter),
+// });
+
+const mapStateToProps = ({ phonebook: { items, filter } }) => {
+  window.localStorage.setItem('contacts', JSON.stringify(items));
+
+  return { contacts: getVisibileContacts(items, filter) };
+};
 
 const mapDispatchToProps = dispatch => ({
   onClick: id => dispatch(deleteContact(id)),
